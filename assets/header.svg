@@ -1,1 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="220" viewBox="0 0 800 220">
+  <defs>
+    <!-- Gradient animasi untuk border neon -->
+    <linearGradient id="neonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed">
+        <animate attributeName="stop-color"
+          values="#7c3aed;#a855f7;#c084fc;#e879f9;#7c3aed"
+          dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" stop-color="#a855f7">
+        <animate attributeName="stop-color"
+          values="#a855f7;#e879f9;#7c3aed;#c084fc;#a855f7"
+          dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#e879f9">
+        <animate attributeName="stop-color"
+          values="#e879f9;#7c3aed;#a855f7;#c084fc;#e879f9"
+          dur="4s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
 
+    <!-- Glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Glow untuk teks -->
+    <filter id="textGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background gelap -->
+  <rect width="800" height="220" rx="20" fill="#0d0117"/>
+
+  <!-- Border neon animasi -->
+  <rect x="3" y="3" width="794" height="214" rx="18"
+    fill="none" stroke="url(#neonGrad)" stroke-width="3"
+    filter="url(#glow)"/>
+
+  <!-- Nama -->
+  <text x="400" y="95" text-anchor="middle"
+    font-family="'Segoe UI', Arial, sans-serif" font-size="42" font-weight="bold"
+    fill="#e2d9f3" filter="url(#textGlow)">
+    Raffa
+  </text>
+
+  <!-- Role -->
+  <text x="400" y="135" text-anchor="middle"
+    font-family="'Segoe UI', Arial, sans-serif" font-size="16"
+    fill="#a78bfa" opacity="0.9">
+    Data Scientist · Web Enthusiast · Video Editor · Photographer
+  </text>
+
+  <!-- Garis dekoratif bawah -->
+  <line x1="250" y1="160" x2="550" y2="160"
+    stroke="url(#neonGrad)" stroke-width="1.5" opacity="0.5"
+    filter="url(#glow)"/>
+</svg>

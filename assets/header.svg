@@ -1,20 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="220" viewBox="0 0 800 220">
   <defs>
-    <linearGradient id="neonGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#7c3aed">
+    <linearGradient id="rainbow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff0000">
         <animate attributeName="stop-color"
-          values="#7c3aed;#e879f9;#c084fc;#a855f7;#7c3aed"
-          dur="3s" repeatCount="indefinite"/>
+          values="#ff0000;#ff8800;#ffff00;#00ff00;#0088ff;#8800ff;#ff0000"
+          dur="4s" repeatCount="indefinite"/>
       </stop>
-      <stop offset="50%" stop-color="#e879f9">
+      <stop offset="16%" stop-color="#ff8800">
         <animate attributeName="stop-color"
-          values="#e879f9;#c084fc;#7c3aed;#e879f9;#a855f7"
-          dur="3s" repeatCount="indefinite"/>
+          values="#ff8800;#ffff00;#00ff00;#0088ff;#8800ff;#ff0000;#ff8800"
+          dur="4s" repeatCount="indefinite"/>
       </stop>
-      <stop offset="100%" stop-color="#a855f7">
+      <stop offset="33%" stop-color="#ffff00">
         <animate attributeName="stop-color"
-          values="#a855f7;#7c3aed;#e879f9;#c084fc;#a855f7"
-          dur="3s" repeatCount="indefinite"/>
+          values="#ffff00;#00ff00;#0088ff;#8800ff;#ff0000;#ff8800;#ffff00"
+          dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" stop-color="#00ff00">
+        <animate attributeName="stop-color"
+          values="#00ff00;#0088ff;#8800ff;#ff0000;#ff8800;#ffff00;#00ff00"
+          dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="66%" stop-color="#0088ff">
+        <animate attributeName="stop-color"
+          values="#0088ff;#8800ff;#ff0000;#ff8800;#ffff00;#00ff00;#0088ff"
+          dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="83%" stop-color="#8800ff">
+        <animate attributeName="stop-color"
+          values="#8800ff;#ff0000;#ff8800;#ffff00;#00ff00;#0088ff;#8800ff"
+          dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#ff0000">
+        <animate attributeName="stop-color"
+          values="#ff0000;#ff8800;#ffff00;#00ff00;#0088ff;#8800ff;#ff0000"
+          dur="4s" repeatCount="indefinite"/>
       </stop>
     </linearGradient>
 
@@ -39,29 +59,29 @@
   </defs>
 
   <!-- Background -->
-  <rect width="800" height="220" rx="20" fill="#0d0117"/>
+  <rect width="800" height="220" rx="20" fill="#0a0a0a"/>
 
-  <!-- Border neon FULL — menutupi seluruh sisi -->
+  <!-- Border rainbow FULL -->
   <rect x="3" y="3" width="794" height="214" rx="18"
-    fill="none" stroke="url(#neonGrad)" stroke-width="3"
+    fill="none" stroke="url(#rainbow)" stroke-width="3"
     filter="url(#glow)"/>
 
   <!-- Nama -->
   <text x="400" y="95" text-anchor="middle"
     font-family="'Segoe UI', Arial, sans-serif" font-size="42" font-weight="bold"
-    fill="#e2d9f3" filter="url(#textGlow)">
+    fill="#ffffff" filter="url(#textGlow)">
     Raffa
   </text>
 
   <!-- Role -->
   <text x="400" y="135" text-anchor="middle"
     font-family="'Segoe UI', Arial, sans-serif" font-size="16"
-    fill="#a78bfa" opacity="0.9">
+    fill="#cccccc" opacity="0.9">
     Data Scientist · Web Enthusiast · Video Editor · Photographer
   </text>
 
-  <!-- Garis dekoratif -->
+  <!-- Garis dekoratif rainbow -->
   <line x1="250" y1="160" x2="550" y2="160"
-    stroke="url(#neonGrad)" stroke-width="1.5" opacity="0.5"
+    stroke="url(#rainbow)" stroke-width="1.5" opacity="0.5"
     filter="url(#glow)"/>
 </svg>

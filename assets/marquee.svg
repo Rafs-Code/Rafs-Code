@@ -1,1 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="36" viewBox="0 0 800 36">
+  <defs>
+    <linearGradient id="marqGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#e879f9"/>
+    </linearGradient>
+  </defs>
 
+  <!-- Mask supaya teks hilang di ujung kiri/kanan -->
+  <clipPath id="clip">
+    <rect x="0" y="0" width="800" height="36"/>
+  </clipPath>
+
+  <g clip-path="url(#clip)">
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        from="0,0" to="-900,0" dur="20s" repeatCount="indefinite"/>
+
+      <!-- Set 1 -->
+      <text y="24" font-family="'Fira Code', 'Consolas', monospace" font-size="15" fill="url(#marqGrad)">
+        <tspan x="0">✦ Data Scientist</tspan>
+        <tspan x="180">✦ Web Enthusiast</tspan>
+        <tspan x="370">✦ Video Editor</tspan>
+        <tspan x="530">✦ Photographer</tspan>
+        <tspan x="700">✦ Problem Solver</tspan>
+      </text>
+
+      <!-- Set 2 (duplikat untuk seamless loop) -->
+      <text y="24" font-family="'Fira Code', 'Consolas', monospace" font-size="15" fill="url(#marqGrad)">
+        <tspan x="900">✦ Data Scientist</tspan>
+        <tspan x="1080">✦ Web Enthusiast</tspan>
+        <tspan x="1270">✦ Video Editor</tspan>
+        <tspan x="1430">✦ Photographer</tspan>
+        <tspan x="1600">✦ Problem Solver</tspan>
+      </text>
+    </g>
+  </g>
+</svg>

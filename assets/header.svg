@@ -1,106 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="220" viewBox="0 0 800 220">
-  <defs>
-    <!-- Trail gradient: warna solid di depan, fade ke transparan di belakang -->
-    <linearGradient id="trail1" gradientUnits="userSpaceOnUse" x1="0" y1="3" x2="200" y2="3">
-      <stop offset="0%" stop-color="#ff0000" stop-opacity="0"/>
-      <stop offset="40%" stop-color="#ff0000" stop-opacity="0.3"/>
-      <stop offset="70%" stop-color="#ff0000" stop-opacity="0.7"/>
-      <stop offset="100%" stop-color="#ff0000" stop-opacity="1"/>
-    </linearGradient>
 
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#ff0000" flood-opacity="0.8" result="color">
+        <animate attributeName="flood-color"
+          values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+          keyTimes="0.0000;0.1429;0.2857;0.4286;0.5714;0.7143;0.8571"
+          dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+      </feFlood>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
       <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="blur"/>
+        <feMergeNode in="shadow"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
-    </filter>
-
-    <filter id="softShadow">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.5"/>
     </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="800" height="220" rx="20" fill="#0a0a0a"/>
+  <rect x="0" y="0" width="800" height="220" fill="#0a0a0a"/>
 
-  <!-- Border statis tipis (base track) -->
+  <!-- Static border track -->
   <rect x="3" y="3" width="794" height="214" rx="18"
-    fill="none" stroke="#1a1a2e" stroke-width="1.5"/>
+    fill="none" stroke="#1a1a2e" stroke-width="1"/>
 
-  <!-- GARIS 1: posisi awal 0 -->
-  <rect x="3" y="3" width="794" height="214" rx="18"
-    fill="none" stroke="#ff0000" stroke-width="3"
-    stroke-dasharray="200 1816"
-    stroke-linecap="round"
-    filter="url(#glow)">
+  <!-- ════════════════════════════════════════════ -->
+  <!-- LINE 1 (perimeter offset: 0px) -->
+  <!-- ════════════════════════════════════════════ -->
+
+  <!-- Line 1 — Head -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="3"
+    stroke-dasharray="200 1816" stroke-dashoffset="0"
+    stroke-linecap="round" filter="url(#glow)">
     <animate attributeName="stroke-dashoffset"
       values="0;-2016" dur="4s" repeatCount="indefinite"/>
-  </rect>
-  <!-- Trail garis 1 -->
-  <rect x="3" y="3" width="794" height="214" rx="18"
-    fill="none" stroke="#ff0000" stroke-width="3"
-    stroke-dasharray="400 1616"
-    stroke-linecap="round"
-    opacity="0.15">
-    <animate attributeName="stroke-dashoffset"
-      values="200;-1816" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1429;0.2857;0.4286;0.5714;0.7143;0.8571"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
   </rect>
 
-  <!-- GARIS 2: posisi awal 1/3 keliling (672px) -->
-  <rect x="3" y="3" width="794" height="214" rx="18"
-    fill="none" stroke="#ff0000" stroke-width="3"
-    stroke-dasharray="200 1816"
-    stroke-linecap="round"
-    filter="url(#glow)">
+  <!-- Line 1 — Trail 1 (opacity=0.7, delay=0.2s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="3"
+    stroke-dasharray="35 1981" stroke-dashoffset="35"
+    stroke-linecap="round" opacity="0.7">
+    <animate attributeName="stroke-dashoffset"
+      values="35;-1981" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1452;0.2881;0.4310;0.5738;0.7167;0.8595"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 1 — Trail 2 (opacity=0.55, delay=0.4s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="3"
+    stroke-dasharray="35 1981" stroke-dashoffset="70"
+    stroke-linecap="round" opacity="0.55">
+    <animate attributeName="stroke-dashoffset"
+      values="70;-1946" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1476;0.2905;0.4333;0.5762;0.7190;0.8619"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 1 — Trail 3 (opacity=0.45, delay=0.6s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="3"
+    stroke-dasharray="35 1981" stroke-dashoffset="105"
+    stroke-linecap="round" opacity="0.45">
+    <animate attributeName="stroke-dashoffset"
+      values="105;-1911" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1500;0.2929;0.4357;0.5786;0.7214;0.8643"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 1 — Trail 4 (opacity=0.37, delay=0.8s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2.5"
+    stroke-dasharray="35 1981" stroke-dashoffset="140"
+    stroke-linecap="round" opacity="0.37">
+    <animate attributeName="stroke-dashoffset"
+      values="140;-1876" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1524;0.2952;0.4381;0.5810;0.7238;0.8667"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 1 — Trail 5 (opacity=0.3, delay=1.0s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2.5"
+    stroke-dasharray="35 1981" stroke-dashoffset="175"
+    stroke-linecap="round" opacity="0.3">
+    <animate attributeName="stroke-dashoffset"
+      values="175;-1841" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1548;0.2976;0.4405;0.5833;0.7262;0.8690"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 1 — Trail 6 (opacity=0.24, delay=1.2s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2.5"
+    stroke-dasharray="35 1981" stroke-dashoffset="210"
+    stroke-linecap="round" opacity="0.24">
+    <animate attributeName="stroke-dashoffset"
+      values="210;-1806" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1571;0.3000;0.4429;0.5857;0.7286;0.8714"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 1 — Trail 7 (opacity=0.19, delay=1.4s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2.5"
+    stroke-dasharray="35 1981" stroke-dashoffset="245"
+    stroke-linecap="round" opacity="0.19">
+    <animate attributeName="stroke-dashoffset"
+      values="245;-1771" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1595;0.3024;0.4452;0.5881;0.7310;0.8738"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 1 — Trail 8 (opacity=0.15, delay=1.6s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2"
+    stroke-dasharray="35 1981" stroke-dashoffset="280"
+    stroke-linecap="round" opacity="0.15">
+    <animate attributeName="stroke-dashoffset"
+      values="280;-1736" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1619;0.3048;0.4476;0.5905;0.7333;0.8762"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 1 — Trail 9 (opacity=0.11, delay=1.8s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2"
+    stroke-dasharray="35 1981" stroke-dashoffset="315"
+    stroke-linecap="round" opacity="0.11">
+    <animate attributeName="stroke-dashoffset"
+      values="315;-1701" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1643;0.3071;0.4500;0.5929;0.7357;0.8786"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 1 — Trail 10 (opacity=0.08, delay=2.0s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2"
+    stroke-dasharray="35 1981" stroke-dashoffset="350"
+    stroke-linecap="round" opacity="0.08">
+    <animate attributeName="stroke-dashoffset"
+      values="350;-1666" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1667;0.3095;0.4524;0.5952;0.7381;0.8810"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 1 — Trail 11 (opacity=0.05, delay=2.2s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2"
+    stroke-dasharray="35 1981" stroke-dashoffset="385"
+    stroke-linecap="round" opacity="0.05">
+    <animate attributeName="stroke-dashoffset"
+      values="385;-1631" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1690;0.3119;0.4548;0.5976;0.7405;0.8833"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 1 — Trail 12 (opacity=0.03, delay=2.4s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2"
+    stroke-dasharray="35 1981" stroke-dashoffset="420"
+    stroke-linecap="round" opacity="0.03">
+    <animate attributeName="stroke-dashoffset"
+      values="420;-1596" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1714;0.3143;0.4571;0.6000;0.7429;0.8857"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- LINE 2 (perimeter offset: 672px) -->
+  <!-- ════════════════════════════════════════════ -->
+
+  <!-- Line 2 — Head -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="3"
+    stroke-dasharray="200 1816" stroke-dashoffset="-672"
+    stroke-linecap="round" filter="url(#glow)">
     <animate attributeName="stroke-dashoffset"
       values="-672;-2688" dur="4s" repeatCount="indefinite"/>
-  </rect>
-  <!-- Trail garis 2 -->
-  <rect x="3" y="3" width="794" height="214" rx="18"
-    fill="none" stroke="#ff0000" stroke-width="3"
-    stroke-dasharray="400 1616"
-    stroke-linecap="round"
-    opacity="0.15">
-    <animate attributeName="stroke-dashoffset"
-      values="-472;-2488" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1429;0.2857;0.4286;0.5714;0.7143;0.8571"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
   </rect>
 
-  <!-- GARIS 3: posisi awal 2/3 keliling (1344px) -->
-  <rect x="3" y="3" width="794" height="214" rx="18"
-    fill="none" stroke="#ff0000" stroke-width="3"
-    stroke-dasharray="200 1816"
-    stroke-linecap="round"
-    filter="url(#glow)">
+  <!-- Line 2 — Trail 1 (opacity=0.7, delay=0.2s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="3"
+    stroke-dasharray="35 1981" stroke-dashoffset="-637"
+    stroke-linecap="round" opacity="0.7">
+    <animate attributeName="stroke-dashoffset"
+      values="-637;-2653" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1452;0.2881;0.4310;0.5738;0.7167;0.8595"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 2 — Trail 2 (opacity=0.55, delay=0.4s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="3"
+    stroke-dasharray="35 1981" stroke-dashoffset="-602"
+    stroke-linecap="round" opacity="0.55">
+    <animate attributeName="stroke-dashoffset"
+      values="-602;-2618" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1476;0.2905;0.4333;0.5762;0.7190;0.8619"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 2 — Trail 3 (opacity=0.45, delay=0.6s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="3"
+    stroke-dasharray="35 1981" stroke-dashoffset="-567"
+    stroke-linecap="round" opacity="0.45">
+    <animate attributeName="stroke-dashoffset"
+      values="-567;-2583" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1500;0.2929;0.4357;0.5786;0.7214;0.8643"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 2 — Trail 4 (opacity=0.37, delay=0.8s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2.5"
+    stroke-dasharray="35 1981" stroke-dashoffset="-532"
+    stroke-linecap="round" opacity="0.37">
+    <animate attributeName="stroke-dashoffset"
+      values="-532;-2548" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1524;0.2952;0.4381;0.5810;0.7238;0.8667"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 2 — Trail 5 (opacity=0.3, delay=1.0s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2.5"
+    stroke-dasharray="35 1981" stroke-dashoffset="-497"
+    stroke-linecap="round" opacity="0.3">
+    <animate attributeName="stroke-dashoffset"
+      values="-497;-2513" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1548;0.2976;0.4405;0.5833;0.7262;0.8690"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 2 — Trail 6 (opacity=0.24, delay=1.2s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2.5"
+    stroke-dasharray="35 1981" stroke-dashoffset="-462"
+    stroke-linecap="round" opacity="0.24">
+    <animate attributeName="stroke-dashoffset"
+      values="-462;-2478" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1571;0.3000;0.4429;0.5857;0.7286;0.8714"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 2 — Trail 7 (opacity=0.19, delay=1.4s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2.5"
+    stroke-dasharray="35 1981" stroke-dashoffset="-427"
+    stroke-linecap="round" opacity="0.19">
+    <animate attributeName="stroke-dashoffset"
+      values="-427;-2443" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1595;0.3024;0.4452;0.5881;0.7310;0.8738"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 2 — Trail 8 (opacity=0.15, delay=1.6s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2"
+    stroke-dasharray="35 1981" stroke-dashoffset="-392"
+    stroke-linecap="round" opacity="0.15">
+    <animate attributeName="stroke-dashoffset"
+      values="-392;-2408" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1619;0.3048;0.4476;0.5905;0.7333;0.8762"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 2 — Trail 9 (opacity=0.11, delay=1.8s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2"
+    stroke-dasharray="35 1981" stroke-dashoffset="-357"
+    stroke-linecap="round" opacity="0.11">
+    <animate attributeName="stroke-dashoffset"
+      values="-357;-2373" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1643;0.3071;0.4500;0.5929;0.7357;0.8786"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 2 — Trail 10 (opacity=0.08, delay=2.0s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2"
+    stroke-dasharray="35 1981" stroke-dashoffset="-322"
+    stroke-linecap="round" opacity="0.08">
+    <animate attributeName="stroke-dashoffset"
+      values="-322;-2338" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1667;0.3095;0.4524;0.5952;0.7381;0.8810"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 2 — Trail 11 (opacity=0.05, delay=2.2s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2"
+    stroke-dasharray="35 1981" stroke-dashoffset="-287"
+    stroke-linecap="round" opacity="0.05">
+    <animate attributeName="stroke-dashoffset"
+      values="-287;-2303" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1690;0.3119;0.4548;0.5976;0.7405;0.8833"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 2 — Trail 12 (opacity=0.03, delay=2.4s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2"
+    stroke-dasharray="35 1981" stroke-dashoffset="-252"
+    stroke-linecap="round" opacity="0.03">
+    <animate attributeName="stroke-dashoffset"
+      values="-252;-2268" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1714;0.3143;0.4571;0.6000;0.7429;0.8857"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- LINE 3 (perimeter offset: 1344px) -->
+  <!-- ════════════════════════════════════════════ -->
+
+  <!-- Line 3 — Head -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="3"
+    stroke-dasharray="200 1816" stroke-dashoffset="-1344"
+    stroke-linecap="round" filter="url(#glow)">
     <animate attributeName="stroke-dashoffset"
       values="-1344;-3360" dur="4s" repeatCount="indefinite"/>
-  </rect>
-  <!-- Trail garis 3 -->
-  <rect x="3" y="3" width="794" height="214" rx="18"
-    fill="none" stroke="#ff0000" stroke-width="3"
-    stroke-dasharray="400 1616"
-    stroke-linecap="round"
-    opacity="0.15">
-    <animate attributeName="stroke-dashoffset"
-      values="-1144;-3160" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1429;0.2857;0.4286;0.5714;0.7143;0.8571"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
   </rect>
 
-  <!-- Nama -->
-  <text x="400" y="95" text-anchor="middle"
-    font-family="'Segoe UI', Arial, sans-serif" font-size="42" font-weight="bold"
-    fill="#ffffff" filter="url(#softShadow)">
-    Raffa
+  <!-- Line 3 — Trail 1 (opacity=0.7, delay=0.2s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="3"
+    stroke-dasharray="35 1981" stroke-dashoffset="-1309"
+    stroke-linecap="round" opacity="0.7">
+    <animate attributeName="stroke-dashoffset"
+      values="-1309;-3325" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1452;0.2881;0.4310;0.5738;0.7167;0.8595"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 3 — Trail 2 (opacity=0.55, delay=0.4s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="3"
+    stroke-dasharray="35 1981" stroke-dashoffset="-1274"
+    stroke-linecap="round" opacity="0.55">
+    <animate attributeName="stroke-dashoffset"
+      values="-1274;-3290" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1476;0.2905;0.4333;0.5762;0.7190;0.8619"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 3 — Trail 3 (opacity=0.45, delay=0.6s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="3"
+    stroke-dasharray="35 1981" stroke-dashoffset="-1239"
+    stroke-linecap="round" opacity="0.45">
+    <animate attributeName="stroke-dashoffset"
+      values="-1239;-3255" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1500;0.2929;0.4357;0.5786;0.7214;0.8643"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 3 — Trail 4 (opacity=0.37, delay=0.8s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2.5"
+    stroke-dasharray="35 1981" stroke-dashoffset="-1204"
+    stroke-linecap="round" opacity="0.37">
+    <animate attributeName="stroke-dashoffset"
+      values="-1204;-3220" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1524;0.2952;0.4381;0.5810;0.7238;0.8667"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 3 — Trail 5 (opacity=0.3, delay=1.0s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2.5"
+    stroke-dasharray="35 1981" stroke-dashoffset="-1169"
+    stroke-linecap="round" opacity="0.3">
+    <animate attributeName="stroke-dashoffset"
+      values="-1169;-3185" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1548;0.2976;0.4405;0.5833;0.7262;0.8690"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 3 — Trail 6 (opacity=0.24, delay=1.2s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2.5"
+    stroke-dasharray="35 1981" stroke-dashoffset="-1134"
+    stroke-linecap="round" opacity="0.24">
+    <animate attributeName="stroke-dashoffset"
+      values="-1134;-3150" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1571;0.3000;0.4429;0.5857;0.7286;0.8714"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 3 — Trail 7 (opacity=0.19, delay=1.4s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2.5"
+    stroke-dasharray="35 1981" stroke-dashoffset="-1099"
+    stroke-linecap="round" opacity="0.19">
+    <animate attributeName="stroke-dashoffset"
+      values="-1099;-3115" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1595;0.3024;0.4452;0.5881;0.7310;0.8738"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 3 — Trail 8 (opacity=0.15, delay=1.6s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2"
+    stroke-dasharray="35 1981" stroke-dashoffset="-1064"
+    stroke-linecap="round" opacity="0.15">
+    <animate attributeName="stroke-dashoffset"
+      values="-1064;-3080" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1619;0.3048;0.4476;0.5905;0.7333;0.8762"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 3 — Trail 9 (opacity=0.11, delay=1.8s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2"
+    stroke-dasharray="35 1981" stroke-dashoffset="-1029"
+    stroke-linecap="round" opacity="0.11">
+    <animate attributeName="stroke-dashoffset"
+      values="-1029;-3045" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1643;0.3071;0.4500;0.5929;0.7357;0.8786"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 3 — Trail 10 (opacity=0.08, delay=2.0s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2"
+    stroke-dasharray="35 1981" stroke-dashoffset="-994"
+    stroke-linecap="round" opacity="0.08">
+    <animate attributeName="stroke-dashoffset"
+      values="-994;-3010" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1667;0.3095;0.4524;0.5952;0.7381;0.8810"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 3 — Trail 11 (opacity=0.05, delay=2.2s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2"
+    stroke-dasharray="35 1981" stroke-dashoffset="-959"
+    stroke-linecap="round" opacity="0.05">
+    <animate attributeName="stroke-dashoffset"
+      values="-959;-2975" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1690;0.3119;0.4548;0.5976;0.7405;0.8833"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Line 3 — Trail 12 (opacity=0.03, delay=2.4s) -->
+  <rect x="3" y="3" width="794" height="214" rx="18" fill="none"
+    stroke="#ff0000" stroke-width="2"
+    stroke-dasharray="35 1981" stroke-dashoffset="-924"
+    stroke-linecap="round" opacity="0.03">
+    <animate attributeName="stroke-dashoffset"
+      values="-924;-2940" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="stroke"
+      values="#ff0000;#00ff00;#0088ff;#ffff00;#00ffff;#8800ff;#ffffff"
+      keyTimes="0.0000;0.1714;0.3143;0.4571;0.6000;0.7429;0.8857"
+      dur="84s" calcMode="discrete" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- TEXT CONTENT -->
+  <!-- ════════════════════════════════════════════ -->
+
+  <!-- Name -->
+  <text x="400" y="105" text-anchor="middle"
+    font-family="Segoe UI, sans-serif" font-size="42" font-weight="bold"
+    fill="#ffffff"
+    style="filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8))">
+    Rafs-Code
   </text>
 
   <!-- Tagline -->
-  <text x="400" y="135" text-anchor="middle"
-    font-family="'Consolas', 'Courier New', monospace" font-size="14"
-    fill="#888888" font-style="italic">
+  <text x="400" y="145" text-anchor="middle"
+    font-family="Consolas, monospace" font-size="14" font-style="italic"
+    fill="#888888">
     Currently building things that matter.
   </text>
 
-  <!-- Garis dekoratif -->
-  <line x1="280" y1="160" x2="520" y2="160"
-    stroke="#222222" stroke-width="1" opacity="0.5"/>
 </svg>
